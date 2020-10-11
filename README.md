@@ -4,7 +4,12 @@ A Discord bot that runs images through DeepDream
 
 ## Dependencies
 
-* `discord.py` 		-	Discord API
-* `python-dotenv`	-	Environment variables from .env
-* `requests`		-	HTTP requests
+All dependencies are handled within venv
 
+## Usage
+
+Rename `.env.template` to `.env` and fill in your DeepAI API key and Discord bot user token.
+
+Then:
+    `make install`
+    `make run`
