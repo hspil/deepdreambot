@@ -10,6 +10,6 @@ All dependencies are handled within venv
 
 Rename `.env.template` to `.env` and fill in your DeepAI API key and Discord bot user token.
 
-Then:
-    `make install`
-    `make run`
+Then:  
+    `make install`  
+    `make run`  
