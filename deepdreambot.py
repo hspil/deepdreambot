@@ -1,15 +1,11 @@
-#.env for API keys
 import os
 from dotenv import load_dotenv
 
-#discord
 from discord import Activity, ActivityType, Embed
 from discord.ext import commands
 
-#API calls
 import requests
 
-#get API keys
 load_dotenv()
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 DEEP_DREAM_KEY = os.getenv("DEEP_DREAM_KEY")
@@ -17,7 +13,6 @@ DEEP_DREAM_KEY = os.getenv("DEEP_DREAM_KEY")
 #init bot
 bot = commands.Bot(command_prefix='!')
 
-#on startup
 @bot.event
 async def on_ready():
 	#sanity/success check
@@ -28,7 +23,7 @@ async def on_ready():
 
 
 
-@bot.command(name="dream")
+@bot.command(name="dream", description="Runs the previous message through DeepDream")
 async def dream(ctx):
 	
 	#get past 2 messages
@@ -51,8 +46,10 @@ async def dream(ctx):
 		headers={'api-key': DEEP_DREAM_KEY}
 	).json()["output_url"]
 	
-	#print(deep_dream_output)
 	await ctx.send(deep_dream_output)
+
+
+
 
 
 bot.run(DISCORD_TOKEN)
